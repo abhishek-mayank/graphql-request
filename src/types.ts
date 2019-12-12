@@ -31,7 +31,7 @@ export interface GraphQLResponse {
 }
 
 export interface GraphQLRequestContext {
-  query: string
+  mutation: string
   variables?: Variables
 }
 
@@ -50,9 +50,9 @@ export class ClientError extends Error {
 
     // this is needed as Safari doesn't support .captureStackTrace
     /* tslint:disable-next-line */
-    if (typeof Error.captureStackTrace === 'function') {
-      Error.captureStackTrace(this, ClientError)
-    }
+    // if (typeof Error.captureStackTrace === 'function') {
+    //   Error.captureStackTrace(this, ClientError)
+    // }
   }
 
   private static extractMessage (response: GraphQLResponse): string {
